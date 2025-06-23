@@ -6,19 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="client" />
+        <module name="microservice-inscription" />
+        <module name="microservice-instructor" />
+        <module name="eureka" />
+        <module name="microservice-client" />
+        <module name="microservice-course" />
         <module name="config" />
         <module name="gateway" />
-        <module name="eureka" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="client" options="-parameters" />
       <module name="config" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="microservice-client" options="-parameters" />
+      <module name="microservice-course" options="-parameters" />
+      <module name="microservice-inscription" options="-parameters" />
+      <module name="microservice-instructor" options="-parameters" />
     </option>
   </component>
 </project>

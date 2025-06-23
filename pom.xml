@@ -21,7 +21,10 @@
     <module>gateway</module>
     <module>eureka</module>
     <module>config</module>
-    <module>client</module>
+    <module>microservice-client</module>
+    <module>microservice-course</module>
+    <module>microservice-instructor</module>
+    <module>microservice-inscription</module>
   </modules>
 
   <properties>
