@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/1-init-database.sql:/docker-entrypoint-initdb.d/1-init-database.sql
+      - ./database/2-init-users.sql:/docker-entrypoint-initdb.d/2-init-users.sql
+      - ./database/3-init-permissions.sql:/docker-entrypoint-initdb.d/3-init-permissions.sql
+      #- postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
