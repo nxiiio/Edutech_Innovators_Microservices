@@ -21,10 +21,10 @@
     <module>gateway</module>
     <module>eureka</module>
     <module>config</module>
-    <module>microservice-client</module>
     <module>microservice-course</module>
     <module>microservice-instructor</module>
     <module>microservice-inscription</module>
+    <module>microservice-client</module>
   </modules>
 
   <properties>
@@ -41,6 +41,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
   </dependencies>
 
