@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: course-microservice
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/course_microservice
+    username: course_user
+    password: course123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  config:
+    import: optional:configserver:http://localhost:8888
+server:
+  port: 8082
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

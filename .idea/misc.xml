@@ -6,8 +6,12 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/client/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-client/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-inscription/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-instructor/pom.xml" />
+        <option value="$PROJECT_DIR$/microservice-course/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="corretto-22" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="ms-17" project-jdk-type="JavaSDK" />
 </project>
