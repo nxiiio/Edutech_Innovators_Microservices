@@ -1,4 +1,4 @@
-INSERT INTO Client (name, email, age) VALUES
+INSERT INTO Client (NAME, EMAIL, AGE) VALUES
     ('Ana García López', 'ana.garcia@email.com', 28),
     ('Carlos Rodríguez Silva', 'carlos.rodriguez@email.com', 35),
     ('María González Pérez', 'maria.gonzalez@email.com', 42),

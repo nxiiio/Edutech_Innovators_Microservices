@@ -1,4 +1,4 @@
-package com.worellana.edutechinnovators.microservice_client.entity;
+package com.worellana.edutechinnovators.microservice_client.dto;
 
 
 import jakarta.validation.constraints.Email;
@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ClientDTO {
 
-    @NotBlank(message = "Nombre requerido")
+    @NotBlank
     String name;
 
-    @NotBlank(message = "Email requerido")
-    @Email(message = "El email debe ser valido")
+    @NotBlank
+    @Email
     String email;
 
-    @NotNull(message = "Edad requerida")
+    @NotNull
     Integer age;
 }

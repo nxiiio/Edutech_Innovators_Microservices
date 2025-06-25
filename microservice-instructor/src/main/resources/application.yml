@@ -7,8 +7,6 @@ spring:
     username: instructor_user
     password: instructor123
   jpa:
-    hibernate:
-      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   config:
