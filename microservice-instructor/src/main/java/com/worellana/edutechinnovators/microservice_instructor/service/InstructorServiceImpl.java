@@ -3,7 +3,6 @@ package com.worellana.edutechinnovators.microservice_instructor.service;
 import com.worellana.edutechinnovators.microservice_instructor.dto.InstructorDTO;
 import com.worellana.edutechinnovators.microservice_instructor.entity.Instructor;
 import com.worellana.edutechinnovators.microservice_instructor.exception.EmailAlreadyExitsException;
-import com.worellana.edutechinnovators.microservice_instructor.exception.EmailNotFoundException;
 import com.worellana.edutechinnovators.microservice_instructor.exception.InstructorNotFoundException;
 import com.worellana.edutechinnovators.microservice_instructor.repository.InstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class InstructorServiceImpl implements InstructorService {
                 .map(user -> {
                     if (repository.existsByEmail(instructor.getEmail()) &&
                         !user.getEmail().equals(instructor.getEmail())) {
-                        throw new EmailNotFoundException("The email does not exist");
+                        throw new EmailAlreadyExitsException("The email already exits");
                     }
                     user.setName(instructor.getName());
                     user.setEmail(instructor.getEmail());

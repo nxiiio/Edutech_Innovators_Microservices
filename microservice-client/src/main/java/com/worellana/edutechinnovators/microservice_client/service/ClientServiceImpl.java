@@ -4,7 +4,6 @@ import com.worellana.edutechinnovators.microservice_client.entity.Client;
 import com.worellana.edutechinnovators.microservice_client.dto.ClientDTO;
 import com.worellana.edutechinnovators.microservice_client.exception.ClientNotFoundException;
 import com.worellana.edutechinnovators.microservice_client.exception.EmailAlreadyExitsException;
-import com.worellana.edutechinnovators.microservice_client.exception.EmailNotFoundException;
 import com.worellana.edutechinnovators.microservice_client.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
                 .map(user -> {
                     if (repository.existsByEmail(client.getEmail()) &&
                         !user.getEmail().equals(client.getEmail())) {
-                        throw new EmailNotFoundException("The email does not exist");
+                        throw new EmailAlreadyExitsException("The email already exits");
                     }
                     user.setName(client.getName());
                     user.setEmail(client.getEmail());

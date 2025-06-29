@@ -8,7 +8,7 @@ import java.util.List;
 public interface InstructorService {
     List<Instructor> getInstructors();
     Instructor getInstructor(Integer id);
-    Instructor addInstructor(InstructorDTO client);
-    Instructor updateInstructor(Integer id, InstructorDTO client);
+    Instructor addInstructor(InstructorDTO instructor);
+    Instructor updateInstructor(Integer id, InstructorDTO instructor);
     void deleteInstructor(Integer id);
 }
