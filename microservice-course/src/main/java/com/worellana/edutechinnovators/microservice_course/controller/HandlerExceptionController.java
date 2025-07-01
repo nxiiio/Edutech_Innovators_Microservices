@@ -1,5 +1,6 @@
 package com.worellana.edutechinnovators.microservice_course.controller;
 
+import com.worellana.edutechinnovators.microservice_course.exception.CategoryNotFoundException;
 import com.worellana.edutechinnovators.microservice_course.exception.CourseNotFoundException;
 import com.worellana.edutechinnovators.microservice_course.exception.ErrorResponse;
 import com.worellana.edutechinnovators.microservice_course.exception.InstructorNotFoundException;
@@ -24,7 +25,7 @@ public class HandlerExceptionController {
     }
 
 
-    @ExceptionHandler({InstructorNotFoundException.class, CourseNotFoundException.class})
+    @ExceptionHandler({InstructorNotFoundException.class, CourseNotFoundException.class, CategoryNotFoundException.class})
     public ResponseEntity<ErrorResponse> notFound(Exception e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ErrorResponse.builder()
                 .error(e.getMessage())

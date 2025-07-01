@@ -5,9 +5,14 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @FeignClient(name = "instructor-microservice", url = "localhost:8084/api/v2/instructor")
 public interface InstructorFeign {
 
     @GetMapping("/{id}")
     InstructorDTO getInstructorById(@PathVariable("id") Integer id);
+
+    @GetMapping
+    List<InstructorDTO> getAllInstructors();
 }

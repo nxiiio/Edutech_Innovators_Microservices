@@ -15,13 +15,18 @@ import lombok.NoArgsConstructor;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_COURSE")
     Integer id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME_COURSE")
     String nameCourse;
 
     @Column(name = "DESCRIPTION_COURSE")
     String descriptionCourse;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_CATEGORY", nullable = false)
+    Category category;
 
     @Column(name = "ID_INSTRUCTOR")
     Integer idInstructor;

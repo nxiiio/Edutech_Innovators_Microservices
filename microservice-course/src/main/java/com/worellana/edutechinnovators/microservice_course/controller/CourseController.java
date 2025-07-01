@@ -1,6 +1,6 @@
 package com.worellana.edutechinnovators.microservice_course.controller;
 
-import com.worellana.edutechinnovators.microservice_course.dto.CourseDTO;
+import com.worellana.edutechinnovators.microservice_course.dto.CourseRequestDTO;
 import com.worellana.edutechinnovators.microservice_course.dto.CourseResponseDTO;
 import com.worellana.edutechinnovators.microservice_course.entity.Course;
 import com.worellana.edutechinnovators.microservice_course.service.CourseService;
@@ -35,17 +35,17 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<CourseResponseDTO> addCourse(@Valid @RequestBody CourseDTO request){
+    public ResponseEntity<CourseResponseDTO> addCourse(@Valid @RequestBody CourseRequestDTO request){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.saveCourse(request));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CourseResponseDTO> updateCourse(@PathVariable Integer id, @Valid @RequestBody CourseDTO request){
+    public ResponseEntity<CourseResponseDTO> updateCourse(@PathVariable Integer id, @Valid @RequestBody CourseRequestDTO request){
         return ResponseEntity.ok(service.updateCourse(id, request));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Course> removeCourse(@PathVariable Integer id){
+    public ResponseEntity<CourseResponseDTO> removeCourse(@PathVariable Integer id){
         service.deleteCourse(id);
         return ResponseEntity.noContent().build();
     }
