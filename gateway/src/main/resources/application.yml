@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888
+  application:
+    name: gateway-microservice
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: clients
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/v2/clients/**
+
+            - id: instructors
+              uri: http://localhost:8084
+              predicates:
+                - Path=/api/v2/instructors/**
+
+            - id: courses
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/v2/courses/**
+
+            - id: inscriptions
+              uri: http://localhost:8083
+              predicates:
+                - Path=/api/v2/inscription/**

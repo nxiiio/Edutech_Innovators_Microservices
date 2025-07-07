@@ -17,9 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service // hace falta mejorar metodos
+@Service // hace falta mejorar metodos, contiene problema de N+1 hacia la base de datos
 public class CourseServiceImpl implements CourseService {
 
     @Autowired
@@ -52,7 +51,7 @@ public class CourseServiceImpl implements CourseService {
                             .instructor(instructor)
                             .build();
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
@@ -98,7 +97,7 @@ public class CourseServiceImpl implements CourseService {
         InstructorDTO instructor;
         Category category = categoryRepository.findById(course.getIdCategory()).orElseThrow(() -> new CategoryNotFoundException("Category not found"));
         try {
-            instructor = instructorFeign.getInstructorById(course.getIdInstructor());
+             instructor = instructorFeign.getInstructorById(course.getIdInstructor());
         } catch (FeignException e) {
             throw new InstructorNotFoundException("Instructor not found");
         }
@@ -118,7 +117,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseResponseDTO updateCourse(Integer id, CourseRequestDTO client) {
+    public CourseResponseDTO updateCourse(Integer id, CourseRequestDTO client) { //Este metodo hace varias consultas innecesarias hacia la base de datos, hace falta mejorarlo
         return CourseRepository.findById(id).map(course -> {
                     InstructorDTO instructor;
                     Category category = categoryRepository.findById(course.getCategory().getId()).orElseThrow(() -> new CategoryNotFoundException("Category not found"));
