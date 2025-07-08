@@ -7,6 +7,7 @@ Sistema de microservicios para una plataforma educativa, desarrollado con **Spri
 ## 📋 Requisitos para el despliegue local
 
 - **Docker** (versión 20.10 o superior, incluido Docker compose)
+- **Maven**
 
 ## 📃 Informacion del proyecto
 - 📦 **Peso**: 400 MB
@@ -16,8 +17,14 @@ Sistema de microservicios para una plataforma educativa, desarrollado con **Spri
 ---
 
 ## 🚀 Instrucciones
-Abre una terminal dentro de la carpeta .\Edutech_innovators\ para los siguientes comandos 
+Abre una terminal dentro de la carpeta .\Edutech_innovators\ para los siguientes comandos
 
+### 🔧 Compilar el proyecto
+Antes de levantar los contenedores, es necesario compilar todos los microservicios.
+### ⚠️ Importante: La compilación generará archivos JAR y descargará dependencias, lo que incrementará considerablemente el tamaño del proyecto.
+```bash
+mvn clean package -DskipTests
+```
 ### 🔼 Levantar el proyecto
 
 Levantar TODOS los contenedores (existen contenedores que dependen de otras)
