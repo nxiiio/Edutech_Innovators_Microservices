@@ -27,7 +27,8 @@ mvn clean package -DskipTests
 ```
 ### 🔼 Levantar el proyecto
 
-Levantar TODOS los contenedores (existen contenedores que dependen de otras)
+Levantar TODOS los contenedores (existen contenedores que dependen de otros)
+### Generalmente se puede tardar entre 2-3 minutos en levantar todos los contenedores
 ```bash
 docker-compose up -d
 ```
