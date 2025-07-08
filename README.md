@@ -25,7 +25,7 @@ Antes de levantar los contenedores, es necesario compilar todos los microservici
 ```bash
 mvn clean package -DskipTests
 ```
-### 🔼 Levantar el proyecto
+## 🔼 Levantar el proyecto
 
 Levantar TODOS los contenedores (existen contenedores que dependen de otros)
 ### Generalmente se puede tardar entre 2-3 minutos en levantar todos los contenedores
@@ -36,7 +36,7 @@ Para verificar que todos los contenedores esten activos
 ```bash
 docker-compose ps
 ```
-### 🔻 Apagar el proyecto y eliminar
+## 🔻 Apagar el proyecto y eliminar
 
 Apaga todos los contenedores y los elimina
 ```bash
