@@ -35,7 +35,8 @@ Apaga todos los contenedores y los elimina
 docker-compose down -v --rmi all
 ```
 ## 🌐 Endpoints
-La API está disponible en: `http://localhost:8080/api/v2/{microservicio}`
+- La API está disponible en: `http://localhost:8080/api/v2/{microservicio}`
+- La coleccion de Postman esta disponible dentro del repositorio para las pruebas de los endpoints
 
 ### 👤 Clients
 
