@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "client-microservice", url = "localhost:8080/api/v2/clients")
+@FeignClient(name = "client-microservice", url = "client-microservice:8081/api/v2/clients")
 public interface ClientFeign {
     @GetMapping
     List<ClientDTO> getClients();

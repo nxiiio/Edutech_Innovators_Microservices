@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:15
+    container_name: postgres
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -12,6 +13,90 @@ services:
       - ./database/2-init-users.sql:/docker-entrypoint-initdb.d/2-init-users.sql
       - ./database/3-init-permissions.sql:/docker-entrypoint-initdb.d/3-init-permissions.sql
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  config-server:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    container_name: config-server
+    networks:
+      - backend
+    depends_on:
+      - postgres
+
+  eureka-server:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+    depends_on:
+      - config-server
+
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    container_name: gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - eureka-server
+
+  client-service:
+      build:
+        context:  ./microservice-client
+        dockerfile: Dockerfile
+      container_name: client-microservice
+      depends_on:
+        - postgres
+        - eureka-server
+      networks:
+        - backend
+
+  instructor-service:
+    build:
+      context: ./microservice-instructor
+      dockerfile: Dockerfile
+    container_name: instructor-microservice
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - eureka-server
+
+  course-service:
+    build:
+      context: ./microservice-course
+      dockerfile: Dockerfile
+    container_name: course-microservice
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - eureka-server
+
+  inscription-service:
+    build:
+      context: ./microservice-inscription
+      dockerfile: Dockerfile
+    container_name: inscription-microservice
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - eureka-server
 
 volumes:
   postgres_data:
+
+networks:
+  backend:
