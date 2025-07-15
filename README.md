@@ -1,6 +1,6 @@
 # 🎓 Edutech Microservices v2
 
-Sistema de microservicios para una plataforma educativa, desarrollado con **Spring Boot** y **Docker**.
+API REST de una plataforma educativa con la arquitectura de microservicios, desarrollado con **Spring Boot** y **Docker**.
 
 ---
 
