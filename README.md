@@ -9,35 +9,30 @@ Sistema de microservicios para una plataforma educativa, desarrollado con **Spri
 - **Docker** (versión 20.10 o superior, incluido Docker compose)
 - **Maven**
 
-## 📃 Informacion del proyecto
-- 🍃 **Spring Cloud Gateway**: Servicio intermediario para la comunicacion entre los microservicios con el cliente REST
-- 🐦 **Flyway**: Dependencia para la creacion de tablas e insercion de datos
-- 📬 **OpenFeign** API para la comunicacion entre microservicios
----
 
-## 🚀 Instrucciones
+# 🚀 Instrucciones para el despliegue
 Abre una terminal dentro de la carpeta .\Edutech_innovators\ para los siguientes comandos
 
 ### 🔧 Compilar el proyecto
-Antes de levantar los contenedores, es necesario compilar todos los microservicios.
-### ⚠️ Importante: La compilación generará archivos JAR y descargará dependencias, lo que incrementará el tamaño del proyecto.
+#### ⚠️ Importante: La compilación generará archivos JAR y descargará dependencias, lo que incrementará el tamaño del proyecto.
+
 ```bash
 mvn clean package -DskipTests
 ```
-## 🔼 Levantar el proyecto
 
-Levantar TODOS los contenedores (existen contenedores que dependen de otros)
-### Generalmente se puede tardar entre 2-3 minutos en levantar todos los contenedores
+### 🔼 Levantar el proyecto
+#### Generalmente se puede tardar entre 2-3 minutos en levantar todos los contenedores
+
 ```bash
 docker-compose up -d
 ```
-Para verificar que todos los contenedores esten activos
+### ✅ Verifica si estan los contenedores activos
 ```bash
 docker-compose ps
 ```
 ## 🔻 Apagar el proyecto y eliminar
 
-Apaga todos los contenedores y los elimina
+### Apaga todos los contenedores y los elimina
 ```bash
 docker-compose down -v --rmi all
 ```
